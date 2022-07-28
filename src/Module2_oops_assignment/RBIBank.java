@@ -15,11 +15,9 @@ public class RBIBank {
 
 	Scanner sc = new Scanner(System.in);
 
-	
 }
 
-class Saving extends RBIBank
-{
+class Saving extends RBIBank {
 
 	public Saving(String name, int accNumber, double balance) {
 		this.name = name;
@@ -97,37 +95,130 @@ class Saving extends RBIBank
 	}
 
 	public void showinformation() {
-		
+
 		System.out.println("Account holder Name : " + name);
 		System.out.println("Account number : " + accNumber);
-		System.out.println("Diposit Amount : "+diposit);
-		System.out.println("Withdrow Amount : "+withdrow);
-		System.out.println("Intrest amount : "+intrest);
-		System.out.println("Clear balance : "+balance);
+		System.out.println("Diposit Amount : " + diposit);
+		System.out.println("Withdrow Amount : " + withdrow);
+		System.out.println("Intrest amount : " + intrest);
+		System.out.println("Clear balance : " + balance);
 	}
 
-	public String getName() {
-		return name;
-	}
+//	public String getName() {
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		this.name = name;
+//	}
+//
+//	public int getAccNumber() {
+//		return accNumber;
+//	}
+//
+//	public void setAccNumber(int accNumber) {
+//		this.accNumber = accNumber;
+//	}
+//
+//	public double getBalance() {
+//		return balance;
+//	}
+//
+//	public void setBalance(double balance) {
+//		this.balance = balance;
+//	}
 
-	public void setName(String name) {
+}
+
+class Current extends RBIBank {
+	public Current(String name, int accNumber, double balance) {
 		this.name = name;
-	}
-
-	public int getAccNumber() {
-		return accNumber;
-	}
-
-	public void setAccNumber(int accNumber) {
 		this.accNumber = accNumber;
-	}
-
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
 		this.balance = balance;
+	}
+
+	public void Diposit() {
+
+		System.out.print("PLEASE ENTER YOUR PIN : ");
+		int pin = sc.nextInt();
+		if (pin != 8787) {
+			System.out.println("YOU ENTER WRONG PIN NUMBER : ");
+		} else {
+
+			System.out.print("Enter Amount you want to diposit : ");
+			diposit = sc.nextInt();
+
+			System.out.println();
+
+			this.balance = diposit + this.balance;
+
+			System.out.println("Clear balance is : " + this.balance);
+		}
+	}
+
+	public void Withdrow() {
+
+		System.out.print("PLEASE ENTER YOUR PIN : ");
+		int pin = sc.nextInt();
+		System.out.println();
+		if (pin != 8787) {
+			System.out.println("YOU ENTER WRONG PIN NUMBER : ");
+		} else {
+
+			System.out.println("CURRENT ACCOUNT PER ONE TRANSACTION WITHDROW LIMIT IS 20,000 RS. : ");
+			System.out.println();
+
+			System.out.print("Enter Amount you want to withdrow : ");
+			withdrow = sc.nextInt();
+
+			if (withdrow % 100 != 0) {
+				System.out.println("Please Enter Amount Multiplus  ₹100 : ");
+			} else if (withdrow > (this.balance - 10000)) {
+				
+				System.out.println("INSUFFISENT BALANCE........");
+			} else {
+				if (withdrow <= 20000) {
+					this.balance = this.balance - withdrow;
+					System.out.println("PLEASE COLLECT YOUR CASH......");
+					System.out.println();
+					System.out.println("Clear balance is : " + this.balance);
+				} else {
+					System.out.println("PLEASE ENTER VALID AMOUNT :");
+				}
+			}
+		}
+	}
+
+	public void ShowDetails() {
+
+		System.out.print("PLEASE ENTER YOUR PIN : ");
+		int pin = sc.nextInt();
+		System.out.println();
+		if (pin != 8787) {
+			System.out.println("YOU ENTER WRONG PIN NUMBER : ");
+		} else {
+
+			System.out.println();
+			System.out.print("Enter Account number you want to search : ");
+			int AccountNumber = sc.nextInt();
+			if (AccountNumber == this.accNumber) {
+				System.out.println();
+				System.out.println("======== YOUR ACCOUNT DETAILS ========= ");
+
+				System.out.println();
+
+				System.out.println("Account Holder Name : " + name);
+				System.out.println("Account Number : " + accNumber);
+				System.out.println("Diposited Amount : " + diposit);
+				System.out.println("Withdrow Amount : " + withdrow);
+				System.out.println("Bank Balance : " + balance);
+
+			}
+
+			else {
+				System.out.println("You Enter Wrong Account Number ");
+			}
+		}
 	}
 
 }

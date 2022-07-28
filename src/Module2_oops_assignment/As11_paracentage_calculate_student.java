@@ -24,12 +24,10 @@ class FirstStudent extends Marks {
 		System.out.print("Enter Physics marks : ");
 		int physics = sc.nextInt();
 
-		System.out.print("Enter psychology Marks");
-		int psychology = sc.nextInt();
 
-		int total = maths + english + physics + psychology;
+		int total = maths + english + physics;
 
-		double parcentage = (double) total / 4;
+		double parcentage = (double) total / 3;
 
 		System.out.println();
 		System.out.println("========FIRST SRUDENT MARKSHEETS=========");
@@ -39,7 +37,6 @@ class FirstStudent extends Marks {
 		System.out.println("Maths maeks : " + maths);
 		System.out.println("English marks : " + english);
 		System.out.println("physics marks : " + physics);
-		System.out.println("psychology marks : " + psychology);
 		System.out.println("Total Marks : " + total);
 		System.out.println("parcentage is : " + parcentage);
 

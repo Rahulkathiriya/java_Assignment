@@ -18,19 +18,19 @@ class MarkSheets extends Subject {
 		Scanner sc = new Scanner(System.in);
 
 		System.out.print("Enter Student name : ");
-		String name = sc.nextLine();
+		 name = sc.nextLine();
 
 		System.out.print("Enter Maths Marks : ");
-		int maths = sc.nextInt();
+		 maths = sc.nextInt();
 
 		System.out.print("Enter English Marks : ");
-		int english = sc.nextInt();
+		 english = sc.nextInt();
 
 		System.out.print("Enter Physics marks : ");
-		int physics = sc.nextInt();
+		 physics = sc.nextInt();
 
 		System.out.print("Enter psychology Marks : ");
-		int psychology = sc.nextInt();
+		 psychology = sc.nextInt();
 
 		int total = maths + english + physics + psychology;
 
